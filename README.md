@@ -15,7 +15,7 @@ VINS-Mono (HKUST Aerial Robotics Group) is a widely used optimization-based mono
 | rosbag | `src/app/euroc_dataset.cpp` | EuRoC/ASL folder reader |
 | `pose_graph` (loop closure), rviz, `ar_demo` | – | not ported: this is **VINS-Mono VIO without loop closure** |
 
-Headline result on **EuRoC MH_01_easy**: ATE RMSE **0.229 m** (SE(3) alignment, 0.29 % of the 80 m path), initialization after **1.3 s**, **no failures/re-initializations**, **3.4× faster than real time** on a laptop CPU, and three runs agree to 0.01 mm. Full numbers are [below](#results-on-euroc-mh_01).
+Headline result on **EuRoC MH_01_easy**: ATE RMSE **0.229 m** (SE(3) alignment, 0.29 % of the 80 m path), initialization after **1.3 s**, **no failures/re-initializations**, **3.4× faster than real time** on a laptop CPU, and repeated runs agree to within 0.2 mm. Full numbers are [below](#results-on-euroc-mh_01).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/mh01_trajectory_dark.png">
@@ -200,11 +200,11 @@ The reference run is stored in [`results/MH_01/`](results/MH_01/) (trajectory, l
 | Velocity error (RMS) | 0.035 m/s |
 | Gyro / accel bias error vs groundtruth (RMS) | 0.0007 rad/s / 0.060 m/s² |
 | Runtime | 19.1 ms solver + 3.7 ms tracker per processed frame (10 Hz), 3.4× real time |
-| Repeatability (3 runs) | ATE 0.22947 – 0.22948 m |
+| Repeatability (4 runs, incl. a fresh clone) | ATE 0.2293 – 0.2295 m |
 
 - *SE(3)* aligns rotation and translation, *4-DoF* only yaw and translation (the unobservable directions of VIO), *Sim(3)* additionally estimates a scale. RPE is computed over 8–40 m of travelled distance, as in the EuRoC/VIO benchmarks.
 - For comparison, published ATE values of VINS-Mono **without loop closure** on MH_01 are about **0.15–0.20 m** (e.g. 0.154 m in the [XRSLAM benchmark](https://xrslam.readthedocs.io/en/latest/benchmark.html), 0.202 m in Table II of [MLINE-VINS](https://arxiv.org/abs/2503.01571)). This port is in the same range, slightly above; such numbers depend on the alignment, on which part of the sequence is evaluated and on the CPU (see the next point), so they are only a rough reference.
-- **Repeatability.** The driver runs both ROS nodes in one thread without dropping messages, so a run is deterministic except for `max_solver_time: 0.04` (Ceres stops after 40 ms, so the number of iterations depends on the CPU speed). On this machine three runs differed by 0.01 mm; on a slower CPU the result can differ slightly. Set `max_solver_time` large for strictly repeatable runs.
+- **Repeatability.** The driver runs both ROS nodes in one thread without dropping messages, so a run is deterministic except for `max_solver_time: 0.04` (Ceres stops after 40 ms, so the number of iterations depends on the CPU speed). On this machine four runs (one of them from a fresh clone) stayed within 0.2293 – 0.2295 m; on a slower CPU the result can differ slightly more. Set `max_solver_time` large for strictly repeatable runs.
 - The full evaluation of the reference run is in [`results/MH_01/evaluation/report.txt`](results/MH_01/evaluation/report.txt); the README figures are regenerated with `python scripts/make_readme_figure.py`.
 
 ## Differences from the original VINS-Mono
