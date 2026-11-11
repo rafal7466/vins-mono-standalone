@@ -1,0 +1,63 @@
+[INFO] VINS-Mono (ROS-free C++ port) on EuRoC -- started 2026-11-11 14:13:29
+[INFO] config  : config\euroc_config.yaml
+[INFO] dataset : dataset\MH_01_easy
+[INFO] output  : results/MH_01
+[INFO] IMU rows 36820, images 3682, loaded in 0.2 s
+[INFO] run: images 0..3681 (1-based 1..3682, 3682 images), t0 = 1403636579763555584 ns, duration 184.0 s
+[INFO] camera 752x480, max_cnt 150, min_dist 30, freq 10, F_threshold 1.00, equalize 1 | window 10, virtual focal 460 px, td 0.0000 s (estimate 0)
+[INFO] IMU noise acc_n 0.08 gyr_n 0.004 acc_w 4e-05 gyr_w 2e-06, g_norm 9.8101, solver 8 it / 0.040 s
+[INFO] init begins
+[INFO] reading paramerter of camera config\euroc_config.yaml
+[INFO] camera model: Camera Parameters:
+    model_type PINHOLE
+   camera_name camera
+   image_width 752
+  image_height 480
+Distortion Parameters
+            k1 -0.2917
+            k2 0.08228
+            p1 5.333e-05
+            p2 -0.0001578
+Projection Parameters
+            fx 461.6
+            fy 460.3
+            cx 363
+            cy 248.1
+
+[WARN] gyroscope bias initial calibration -0.00201718   0.0306589   0.0789998
+[INFO] Initialization finish!
+[WARN] VINS initialised (segment 1) at t_rel = 1.30 s
+[INFO] t_rel    20.2 s | VIO  | seg 1 | fail 0 | pts 144 | |p|      0.3 m z    -0.2 | |v|   0.0 m/s | ba 0.246 bg 0.0821 td +0.0000 | solve 17.5 ms (avg 16.2) | x3.69 real time
+[INFO] t_rel    40.2 s | VIO  | seg 1 | fail 0 | pts 150 | |p|      0.3 m z    -0.2 | |v|   0.0 m/s | ba 0.226 bg 0.0824 td +0.0000 | solve 13.5 ms (avg 15.1) | x4.18 real time
+[INFO] t_rel    60.2 s | VIO  | seg 1 | fail 0 | pts 143 | |p|      6.7 m z     0.2 | |v|   0.7 m/s | ba 0.217 bg 0.0814 td +0.0000 | solve 17.6 ms (avg 16.3) | x3.94 real time
+[INFO] t_rel    80.2 s | VIO  | seg 1 | fail 0 | pts 115 | |p|      7.0 m z    -0.3 | |v|   0.5 m/s | ba 0.196 bg 0.0813 td +0.0000 | solve 16.2 ms (avg 17.6) | x3.70 real time
+[INFO] t_rel   100.2 s | VIO  | seg 1 | fail 0 | pts 137 | |p|     12.2 m z    -1.4 | |v|   0.4 m/s | ba 0.175 bg 0.0813 td +0.0000 | solve 24.0 ms (avg 18.1) | x3.59 real time
+[INFO] t_rel   120.2 s | VIO  | seg 1 | fail 0 | pts 144 | |p|      6.3 m z    -0.7 | |v|   0.2 m/s | ba 0.170 bg 0.0813 td +0.0000 | solve 22.3 ms (avg 18.3) | x3.55 real time
+[INFO] t_rel   140.2 s | VIO  | seg 1 | fail 0 | pts 140 | |p|      8.0 m z    -1.4 | |v|   0.6 m/s | ba 0.169 bg 0.0811 td +0.0000 | solve 21.4 ms (avg 18.6) | x3.49 real time
+[INFO] t_rel   160.2 s | VIO  | seg 1 | fail 0 | pts 145 | |p|      2.2 m z    -0.1 | |v|   0.3 m/s | ba 0.166 bg 0.0809 td +0.0000 | solve 22.4 ms (avg 18.9) | x3.46 real time
+[INFO] t_rel   180.2 s | VIO  | seg 1 | fail 0 | pts 142 | |p|      0.5 m z     0.1 | |v|   0.2 m/s | ba 0.164 bg 0.0808 td +0.0000 | solve 19.9 ms (avg 19.1) | x3.42 real time
+[INFO] finished 2026-11-11 14:14:23
+images_in_run=3682
+images_read=3681
+frames_published=1840
+frames_processed=1838
+poses_output=1828
+first_init_t_rel_s=1.300
+segments=1
+failures_reboots=0
+image_discontinuity_restarts=0
+thrown_images=0
+run_duration_s=184.050
+wall_time_s=53.825
+realtime_factor=3.419
+mean_solve_ms=19.109
+max_solve_ms=39.341
+mean_track_ms=3.659
+final_td_s=0.000
+final_ba=-0.029  0.140  0.080
+final_bg=-0.003  0.021  0.078
+final_tic=-0.022 -0.065  0.010
+config=config\euroc_config.yaml
+start_image_index=1
+t0_ns=1403636579763555584
+

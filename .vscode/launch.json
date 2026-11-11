@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "vins_euroc: MH_01 (Release, debugger)", "type": "cppvsdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/Release/vins_euroc.exe", "args": ["config/euroc_config.yaml"],
+      "cwd": "${workspaceFolder}", "console": "integratedTerminal", "preLaunchTask": "CMake: build Release" },
+    { "name": "vins_euroc: MH_01 first 40 s (Debug build)", "type": "cppvsdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/Debug/vins_euroc.exe", "args": ["config/euroc_config.yaml", "--duration", "40", "--out", "output/debug"],
+      "cwd": "${workspaceFolder}", "console": "integratedTerminal", "preLaunchTask": "CMake: build Debug" },
+    { "name": "Python: evaluate MH_01", "type": "python", "request": "launch", "program": "${workspaceFolder}/scripts/evaluate_euroc.py",
+      "args": ["--run", "output/MH01", "--gt", "dataset/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv", "--out", "output/evaluation"],
+      "cwd": "${workspaceFolder}", "console": "integratedTerminal" }
+  ]
+}

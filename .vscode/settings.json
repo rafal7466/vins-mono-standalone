@@ -1,0 +1,4 @@
+{
+  "files.associations": { "*.hpp": "cpp", "*.h": "cpp", "*.cc": "cpp", "*.yaml": "yaml" },
+  "C_Cpp.default.cppStandard": "c++17"
+}

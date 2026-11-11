@@ -1,0 +1,21 @@
+vins-mono-standalone
+Copyright (C) 2026 Mohammadreza (https://github.com/rafal7466)
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License version 3 (see LICENSE).
+
+It is a modified version of the following works:
+
+* VINS-Mono - Tong Qin, Peiliang Li, Zhenfei Yang, Shaojie Shen,
+  HKUST Aerial Robotics Group
+  https://github.com/HKUST-Aerial-Robotics/VINS-Mono
+  License: GNU GPL v3. src/vins_estimator, src/feature_tracker and
+  config/euroc_config.yaml come from it, with the changes listed in README.md.
+
+* camodocal camera models - Lionel Heng (as included in VINS-Mono)
+  https://github.com/hengli/camodocal
+  src/camera_model/ (subset: pinhole, MEI, Kannala-Brandt), with Boost removed.
+
+The EuRoC MAV dataset (used for the results in results/) is by the Autonomous
+Systems Lab, ETH Zurich: M. Burri et al., "The EuRoC micro aerial vehicle
+datasets", IJRR 2016, doi:10.3929/ethz-b-000690084.

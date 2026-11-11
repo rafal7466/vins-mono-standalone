@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "CMake: configure (VS2022 + vcpkg)", "type": "shell", "command": "cmake", "args": ["--preset", "vs2022-vcpkg"],
+      "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] },
+    { "label": "CMake: build Release", "type": "shell", "command": "cmake", "args": ["--build", "--preset", "release", "--", "/m", "/v:m"],
+      "options": { "cwd": "${workspaceFolder}" }, "dependsOn": ["CMake: configure (VS2022 + vcpkg)"], "problemMatcher": ["$msCompile"],
+      "group": { "kind": "build", "isDefault": true } },
+    { "label": "CMake: build Debug", "type": "shell", "command": "cmake", "args": ["--build", "--preset", "debug", "--", "/m", "/v:m"],
+      "options": { "cwd": "${workspaceFolder}" }, "dependsOn": ["CMake: configure (VS2022 + vcpkg)"], "problemMatcher": ["$msCompile"], "group": "build" },
+    { "label": "vins: run MH_01 (config/euroc_config.yaml)", "type": "shell", "command": "${workspaceFolder}/build/Release/vins_euroc.exe",
+      "args": ["config/euroc_config.yaml"], "options": { "cwd": "${workspaceFolder}" }, "dependsOn": ["CMake: build Release"], "problemMatcher": [] },
+    { "label": "vins: run MH_01 three times (repeatability)", "type": "shell", "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "scripts/run_repeat.ps1", "-N", "3"],
+      "options": { "cwd": "${workspaceFolder}" }, "dependsOn": ["CMake: build Release"], "problemMatcher": [] },
+    { "label": "vins: evaluate against ground truth (python)", "type": "shell", "command": "python",
+      "args": ["scripts/evaluate_euroc.py", "--run", "output/MH01", "--gt", "dataset/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+               "--out", "output/evaluation"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "vs2022-vcpkg",
+      "displayName": "Visual Studio 2022 x64 + vcpkg",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "vs2022-vcpkg", "configuration": "Release" },
+    { "name": "debug", "configurePreset": "vs2022-vcpkg", "configuration": "Debug" }
+  ]
+}

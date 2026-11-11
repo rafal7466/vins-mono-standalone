@@ -1,0 +1,11 @@
+build/
+build-*/
+.vs/
+*.user
+# EuRoC data is downloaded locally (see README)
+dataset/
+# private vcpkg created by scripts/setup_vcpkg.ps1
+tools/
+# outputs of new runs
+output/
+__pycache__/

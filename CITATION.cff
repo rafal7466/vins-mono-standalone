@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, together with the original VINS-Mono papers."
+title: "vins-mono-standalone: VINS-Mono visual-inertial odometry as a standalone C++ program (no ROS)"
+type: software
+authors:
+  - given-names: Mohammadreza
+    affiliation: "Sharif University of Technology"
+    website: "https://github.com/rafal7466"
+repository-code: "https://github.com/rafal7466/vins-mono-standalone"
+license: GPL-3.0-only
+version: 1.0.0
+date-released: "2026-11-11"
+keywords:
+  - VINS-Mono
+  - visual-inertial odometry
+  - VIO
+  - SLAM
+  - EuRoC
+references:
+  - type: article
+    title: "VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator"
+    authors:
+      - family-names: Qin
+        given-names: Tong
+      - family-names: Li
+        given-names: Peiliang
+      - family-names: Shen
+        given-names: Shaojie
+    journal: "IEEE Transactions on Robotics"
+    volume: 34
+    issue: 4
+    year: 2018
+    doi: "10.1109/TRO.2018.2853729"
+  - type: software
+    title: "VINS-Mono"
+    repository-code: "https://github.com/HKUST-Aerial-Robotics/VINS-Mono"
